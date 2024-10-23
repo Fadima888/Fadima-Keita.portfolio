@@ -1,0 +1,338 @@
+
+
+
+/* Desktop */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "roboto mono", sans-serif;
+    display: flex;
+    background-color: #ffffff;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    color: #012b55;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    color:  #102942;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    color: #102942;
+}
+
+.sidebar .work-list {
+    margin-top: 20px;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    flex: 1;
+}
+
+header {
+    background-color: #f7f8f9;
+    color: #012b55;
+    padding: 8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+header P {
+    margin: 1rem;
+}
+
+/* Updated grid-container to display two images per row */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 1rem;
+}
+
+/*.project {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}*/
+.project {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.project img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistent image sizes */
+    object-fit: cover; /* Ensures the image fills the box while maintaining aspect ratio */
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 27, 27, 0.7); /* Semi-transparent black overlay */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.project:hover .project-overlay {
+    opacity: 1; /* Show the overlay on hover */
+}
+
+.project-overlay h3, 
+.project-overlay p {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.project h3 {
+    margin: 0.5rem 0;
+}
+
+.project p {
+    padding: 0 1rem;
+}
+
+.project a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Ensure text color inherits from the parent */
+}
+
+.project:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+
+/* Styling for the social media icons */
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+footer .social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+footer .social-icons img:hover {
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+}
+
+/* Footer styling */
+footer {
+    background-color: #ffffff;
+    color: #102942;
+    text-align: center;
+    padding: 5rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Scroll to Top Button Styles */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px;  /* Distance from the right of the viewport */
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    background-color: #686666;
+    color:  #012b55;
+    border: none;
+    border-radius: 10px; /* Rounded edges */
+    cursor: pointer;
+    display: flex; /* Center the arrow icon inside the button */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Keeps it above other elements */
+    transition: background-color 0.3s;
+    font-size: 24px; /* Make the arrow icon larger */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #7e7c7c; /* Slightly lighter color on hover */
+}
+
+/* Contact Page Styles */
+.contact-page {
+    max-width: 800px;
+    margin: 2rem auto; /* Center the form on the page */
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+}
+
+.contact-page h2 {
+    text-align: center;
+    color:  #102942;
+    margin-bottom: 1.5rem;
+}
+
+.contact-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between form elements */
+}
+
+.contact-page label {
+    font-weight: bold;
+    color:  #102942;
+}
+
+.contact-page input[type="text"],
+.contact-page input[type="email"],
+.contact-page textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded inputs */
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contact-page input[type="text"]:focus,
+.contact-page input[type="email"]:focus,
+.contact-page textarea:focus {
+    border-color: #333; /* Highlight border on focus */
+}
+
+.contact-page textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-page button {
+    padding: 0.8rem;
+    background-color: #102942;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin-top: 1rem;
+    max-width: 200px; /* Set maximum width */
+    align-self: start; /* Center the button */
+    width: 100%; /* Ensure it takes full width up to the max */
+}
+
+
+.contact-page button:hover {
+    background-color: #555; /* Darken button on hover */
+}
+.cc {
+    text-align: center;
+    margin: 2%;
+    
+}
+
+.cc4 {
+    text-align: center;
+    margin: 2%;
+    font-weight: 310;
+}
+
+#ctext  {
+    margin-top: 10%;
+    color:  #102942;
+}
+
+ /* WORKS PAGES */
+
+/* Responsive styling for tablets and smaller screens */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    .content {
+        margin-left: 220px;
+    }
+}
+
+/* Responsive styling for mobile screens */
+@media (max-width: 768px) {
+
+    .sidebar {
+        display: none;
+    }
+    
+    
+
+    .content {
+        position: relative;
+        margin: 0;
+        padding: 5px;
+    }
+
+
+
+    .grid-container {
+        grid-template-columns: 1fr; /* One column layout for smaller screens */
+    }
+
+    header {
+        padding: 4rem; /* Adjust header padding for smaller screens */
+    }
+
+    .contact-page {
+        max-width: 90%; /* Reduce the max-width for better fit */
+    }
+
+}
+
+
+/* Additional mobile optimizations for very small screens */
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 5px;
+    }
+
+    .content {
+        padding: 5px;
+    }
+
+    footer {
+        padding: 2rem;
+    }
+}
